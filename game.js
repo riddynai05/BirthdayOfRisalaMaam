@@ -1893,6 +1893,9 @@ function initFunnyGame() {
     const overlay = document.getElementById('funnyGameOverOverlay');
     if (overlay) overlay.style.display = 'none';
 
+    const touchGuide = document.getElementById('gameTouchControlsGuide');
+    if (touchGuide) touchGuide.style.display = 'flex';
+
     const comm = document.getElementById('gameLiveCommentary');
     if (comm) comm.textContent = '🕵️‍♂️ Sherlock Riddy: "Catch the cakes and flowers, Ma\'am! Dodge the alarms!"';
 
@@ -2177,12 +2180,15 @@ function endFunnyGame() {
     else rankTitle = 'Certified Favourite 💖';
 
     if (summary) {
-        summary.textContent = `Ma'am scored a grand ${gameScore} points! — Title: ${rankTitle}`;
+        summary.innerHTML = `Ma'am scored a grand ${gameScore} points! — <span class="summary-title-badge">Title: ${rankTitle}</span>`;
     }
 
     if (degree) {
         degree.textContent = `"After a thorough investigation, Sherlock Riddy has determined that today deserves a little extra celebration. The evidence is clear: it's Ma'am's birthday! Case closed. Happy Birthday, Ma'am! 💗"`;
     }
+
+    const touchGuide = document.getElementById('gameTouchControlsGuide');
+    if (touchGuide) touchGuide.style.display = 'none';
 
     if (overlay) overlay.style.display = 'flex';
 }
