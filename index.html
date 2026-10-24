@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Birthday Of Risala Ma'am</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+</head>
+<body>
+    <!-- Ambient Sparkles & Celebratory Confetti -->
+    <canvas id="sparkleCanvas"></canvas>
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="story-wrapper">
+        <!-- Top Elegant Header -->
+        <header class="top-bar">
+            <div>
+                <span class="brand-title">October 24, 2026</span>
+            </div>
+            <div class="top-controls">
+                <button id="topMusicBtn" class="pill-btn">
+                    <span>🎵</span>
+                    <span class="desktop-text">Play Birthday Melody</span>
+                    <span class="mobile-text">Melody</span>
+                </button>
+                <button id="topSoundBtn" class="pill-btn">
+                    <span>🔊</span>
+                    <span class="desktop-text">Sound On</span>
+                    <span class="mobile-text">Sound</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- STAGE 0: WELCOME SURFACE -->
+        <main id="stage-intro" class="game-stage active">
+            <div class="welcome-surface">
+                <div class="surface-dedication-wrap">
+                    <div class="dedication-sparkle-crest">✧ &nbsp; ✦ &nbsp; ✧</div>
+                    <p class="dedication-line">A small token of love and respect for an amazing person.</p>
+                    <p class="dedication-line highlight">Made with love and care, just for you, Ma'am!</p>
+                    <div class="dedication-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-icon">❦</span>
+                        <span class="divider-line"></span>
+                    </div>
+                </div>
+                <h1 class="surface-headline">HAPPY BIRTHDAY DEAR MA'AM</h1>
+                <button id="enterCelebrationBtn" class="enter-grand-btn" style="margin-top: 14px;">
+                    <span>✨</span>
+                    <span>ENTER</span>
+                    <span>→</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- STAGE 0.5: SHERLOCK RIDDY WARNING SURFACE -->
+        <section id="stage-warning" class="game-stage">
+            <div class="welcome-surface warning-surface-card">
+                <div class="detective-badge">
+                    <span class="detective-icon">🕵️‍♂️</span>
+                    <span class="warning-triangle">⚠️</span>
+                </div>
+                <div class="warning-title-pill">SECURITY NOTICE</div>
+                <h1 class="warning-headline">WARNING!</h1>
+                <p class="warning-subtext">
+                    This website was developed by <strong class="sherlock-highlight">Sherlock Riddy</strong>.
+                </p>
+                <div class="press-anywhere-pill">
+                    <span class="pulse-dot">👉</span>
+                    <span>Press anywhere to continue</span>
+                    <span class="pulse-arrow">➔</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 0.6: PRIVACY IS SAFE SURFACE -->
+        <section id="stage-privacy" class="game-stage">
+            <div class="welcome-surface privacy-surface-card">
+                <div class="privacy-badge">
+                    <span class="privacy-icon">🛡️</span>
+                    <span class="privacy-sparkle">✨</span>
+                </div>
+                <div class="privacy-title-pill">CONFIDENTIAL &amp; PROTECTED</div>
+                <h1 class="privacy-headline">Don't Worry Your Privacy Is Safe!!</h1>
+                <p class="privacy-subtext">
+                    Handcrafted with utmost care, respect, and love. Everything here is just for your special birthday celebration, Ma'am!
+                </p>
+                <button id="privacyEnterBtn" class="enter-grand-btn">
+                    <span>✨</span>
+                    <span>ENTER</span>
+                    <span>➔</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 1: RIDE TO THE SHOPPING MALL -->
+        <section id="stage-ride-mall" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 1</div>
+                    <h2 class="chapter-title">The Ride to the Mall</h2>
+                </div>
+            </div>
+
+            <!-- Vehicle Selection -->
+            <div class="vehicle-selector-panel">
+                <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #7a1c2c;">
+                    Choose Your Preferred Vehicle for the Ride:
+                </div>
+                <div class="vehicle-options-grid">
+                    <div class="vehicle-option-card selected" data-vehicle="vespa">
+                        <div class="veh-icon">🛵</div>
+                        <div class="veh-name">Retro Cream & Rose Vespa</div>
+                        <div class="veh-desc">Chic vintage Italian scooter with chrome mirrors and smooth cruise.</div>
+                    </div>
+                    <div class="vehicle-option-card" data-vehicle="bicycle">
+                        <div class="veh-icon">🚲</div>
+                        <div class="veh-name">Parisian Basket Bicycle</div>
+                        <div class="veh-desc">Graceful pastel bike with a wicker basket filled with fresh morning flowers.</div>
+                    </div>
+                    <div class="vehicle-option-card" data-vehicle="convertible">
+                        <div class="veh-icon">🚗</div>
+                        <div class="veh-name">Vintage Cabriolet Convertible</div>
+                        <div class="veh-desc">Grand classic cruiser with cream leather seats and gilded details.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Driving Viewport -->
+            <div class="ride-viewport">
+                <div class="canvas-container">
+                    <canvas id="rideMallCanvas"></canvas>
+                    <div class="ride-hud-overlay">
+                        <div class="hud-item">
+                            <span>Destination: The Mall</span>
+                        </div>
+                        <div class="hud-item">
+                            <span id="mallDistanceText">0 m / 1000 m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div style="width: 100%; height: 8px; background: #ecdcd3; border-radius: 4px; overflow: hidden; margin: 4px 0;">
+                    <div id="mallProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #c5a059, #7a1c2c); transition: width 0.1s;"></div>
+                </div>
+
+                <!-- Drive Controls Bar -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 6px;">
+                    <button id="driveMallHoldBtn" class="enter-grand-btn hold-drive-btn">
+                        <span>▶ HOLD TO DRIVE FORWARD ➔</span>
+                    </button>
+                    <div class="drive-instruction-note">
+                        Press & hold the button to cruise forward at your own pace!
+                    </div>
+                </div>
+
+                <div class="ride-bottom-actions" style="margin-top: 10px;">
+                    <div style="font-size: 13.5px; color: #6b4d53; font-style: italic;">
+                        Cruising down the avenue towards the boutique...
+                    </div>
+                    <button id="enterMallBoutiqueBtn" class="enter-grand-btn" style="padding: 12px 28px; font-size: 14px; opacity: 0.5;" disabled>
+                        <span>Step into the Boutique →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 2: THE SHOPPING MALL (SAREE & JEWELRY BOUTIQUE) -->
+        <section id="stage-mall" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 2</div>
+                    <h2 class="chapter-title">Choose Your Outfit</h2>
+                </div>
+            </div>
+
+            <div class="boutique-layout">
+                <!-- Dressing Mirror View -->
+                <div class="boutique-mirror-card">
+                    <div class="mirror-frame">
+                        <div id="boutiqueMirrorView">
+                            <!-- Populated with SVG Avatar -->
+                        </div>
+                    </div>
+                    <div style="margin-top: 18px; width: 100%; display: flex; gap: 10px;">
+                        <button id="mirrorTwirlBtn" class="pill-btn" style="flex: 1; justify-content: center; background: #ffffff;">
+                            <span>✨ Admire Custom Ensemble</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Boutique Racks -->
+                <div class="boutique-controls-card">
+                    <div>
+                        <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #7a1c2c;">
+                            Choose Sarees & Fine Jewelry
+                        </div>
+                        <p style="font-size: 13.5px; color: #6b4d53; margin-top: 4px;">
+                            Select from heritage Katan, Banarasi, Jamdani, and Chiffon sarees handpicked for Risala Ma'am.
+                        </p>
+                    </div>
+
+                    <!-- Saree Catalog -->
+                    <div>
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 8px;">
+                            👗 Designer Saree Collection
+                        </div>
+                        <div id="boutiqueSareeGrid" class="saree-catalog-grid"></div>
+                    </div>
+
+
+                    <!-- Fine Jewelry -->
+                    <div>
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 8px;">
+                            👑 Fine Heritage Jewelry
+                        </div>
+                        <div id="boutiqueJewelryPills" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                    </div>
+
+                    <!-- Hair Flowers / Gajra -->
+                    <div>
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 8px;">
+                            🌺 Hair Gajra / Flowers
+                        </div>
+                        <div id="boutiqueFlowerPills" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                    </div>
+
+                    <!-- Proceed to Restaurant -->
+                    <button id="finishShoppingBtn" class="enter-grand-btn" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        <span>Return to Vehicle & Drive to Restaurant →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 3: TWILIGHT RIDE TO RESTAURANT -->
+        <section id="stage-ride-restaurant" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 3</div>
+                    <h2 class="chapter-title">Twilight Promenade to the Restaurant</h2>
+                </div>
+            </div>
+
+            <!-- Vehicle Selection for Evening Promenade -->
+            <div class="vehicle-selector-panel">
+                <div style="font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #7a1c2c;">
+                    Choose Your Preferred Vehicle for the Evening Promenade:
+                </div>
+                <div class="vehicle-options-grid">
+                    <div class="vehicle-option-card selected" data-vehicle="vespa">
+                        <div class="veh-icon">🛵</div>
+                        <div class="veh-name">Retro Cream & Rose Vespa</div>
+                        <div class="veh-desc">Chic vintage Italian scooter with chrome mirrors and smooth cruise.</div>
+                    </div>
+                    <div class="vehicle-option-card" data-vehicle="bicycle">
+                        <div class="veh-icon">🚲</div>
+                        <div class="veh-name">Parisian Basket Bicycle</div>
+                        <div class="veh-desc">Graceful pastel bike with a wicker basket filled with fresh morning flowers.</div>
+                    </div>
+                    <div class="vehicle-option-card" data-vehicle="convertible">
+                        <div class="veh-icon">🚗</div>
+                        <div class="veh-name">Vintage Cabriolet Convertible</div>
+                        <div class="veh-desc">Grand classic cruiser with cream leather seats and gilded details.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ride-viewport">
+                <div class="canvas-container">
+                    <canvas id="rideRestaurantCanvas"></canvas>
+                    <div class="ride-hud-overlay">
+                        <div class="hud-item">
+                            <span>Destination: L'Étoile Fine Dining Pavilion</span>
+                        </div>
+                        <div class="hud-item">
+                            <span id="restDistanceText">0 m / 1000 m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div style="width: 100%; height: 8px; background: #ecdcd3; border-radius: 4px; overflow: hidden; margin: 4px 0;">
+                    <div id="restProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #c5a059, #7a1c2c); transition: width 0.1s;"></div>
+                </div>
+
+                <!-- Drive Controls Bar -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 6px;">
+                    <button id="driveRestHoldBtn" class="enter-grand-btn hold-drive-btn">
+                        <span>▶ HOLD TO DRIVE FORWARD ➔</span>
+                    </button>
+                    <div class="drive-instruction-note">
+                        Press & hold the button to cruise under the evening lights!
+                    </div>
+                </div>
+
+                <div class="ride-bottom-actions" style="margin-top: 10px;">
+                    <div style="font-size: 13.5px; color: #6b4d53; font-style: italic;">
+                        Cruising in her gorgeous saree towards the celebration pavilion...
+                    </div>
+                    <button id="enterRestaurantBtn" class="enter-grand-btn" style="padding: 12px 28px; font-size: 14px; opacity: 0.5;" disabled>
+                        <span>🌸 Arrive & Receive Birthday Flowers →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 4: WARM WELCOME & BIRTHDAY FLOWERS (WITH LOCKED LETTER) -->
+        <section id="stage-flowers" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 4</div>
+                    <h2 class="chapter-title">Warm Welcome & Birthday Flowers</h2>
+                </div>
+            </div>
+
+            <div class="flowers-stage-layout">
+                <!-- Bouquet Presentation Card -->
+                <div class="restaurant-welcome-card flowers-welcome-card">
+                    <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a059;">
+                        Warm Welcome
+                    </div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #7a1c2c;">
+                        A Fresh Flower Bouquet for Ma'am
+                    </div>
+                    <p style="font-size: 14px; color: #6b4d53; line-height: 1.5;">
+                        As you arrive at the celebration pavilion, you are welcomed with a fragrant bouquet of fresh red roses, white lilies, and golden satin ribbons.
+                    </p>
+                    <div id="bouquetDisplayBox" class="bouquet-display-box">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div style="font-size: 12.5px; color: #8a656d; font-style: italic;">
+                        Presented with deep admiration, love, and respect!
+                    </div>
+                </div>
+
+                <!-- Sealed Birthday Letter Card (Cannot open until cutting cake) -->
+                <div id="sealedLetterCard" class="sealed-letter-card">
+                    <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a059;">
+                        Secret Keepsake
+                    </div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #7a1c2c;">
+                        A Special Letter for Ma'am
+                    </div>
+                    <p style="font-size: 14px; color: #6b4d53; line-height: 1.5;">
+                        A heartfelt handwritten letter is sealed with a gold medallion and silk ribbon. By sacred tradition, it is locked until the birthday cake is sliced!
+                    </p>
+
+                    <!-- Sealed Envelope Graphic -->
+                    <div id="sealedEnvelopeBox" class="sealed-envelope-box">
+                        <!-- Populated with generateSealedEnvelopeSVG() -->
+                    </div>
+
+                    <!-- Status Pill -->
+                    <div id="sealedLetterStatusPill" class="sealed-status-pill locked">
+                        <span id="sealedStatusIcon">🔒</span>
+                        <span id="sealedStatusText">Locked — Opens After Cake Cutting 🎂</span>
+                    </div>
+
+                    <!-- Button to tap/attempt open -->
+                    <button id="sealedLetterBtn" class="pill-btn sealed-action-btn">
+                        <span id="sealedBtnText">🔒 Attempt to Open Letter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grand Proceed to Cake Celebration Button -->
+            <div class="proceed-to-cake-wrapper">
+                <button id="proceedToCakeBtn" class="enter-grand-btn">
+                    <span>🎂 Cut the Cake First →</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 5: THE BIRTHDAY CAKE CELEBRATION -->
+        <section id="stage-cake" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 5</div>
+                    <h2 class="chapter-title">The Birthday Cake Celebration</h2>
+                </div>
+            </div>
+
+            <div class="cake-stage-layout">
+                <!-- Artisan Cake Card -->
+                <div class="cake-celebration-card">
+                    <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #c5a059;">
+                        The Celebration Ritual
+                    </div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #7a1c2c;">
+                        Blow Candles & Slice the Cake
+                    </div>
+                    <p style="font-size: 14px; color: #6b4d53; line-height: 1.5; text-align: center; max-width: 520px;">
+                        Make a silent wish under the sparkling chandelier, blow out the glowing candles, and slice your royal birthday cake!
+                    </p>
+
+                    <div id="cakeDisplayBox" class="cake-display-box">
+                        <!-- Populated with Artisan Cake SVG -->
+                    </div>
+
+                    <div style="display: flex; gap: 14px; width: 100%; justify-content: center; margin-top: 12px; flex-wrap: wrap;">
+                        <button id="restBlowCandlesBtn" class="pill-btn cake-action-btn">
+                            <span>💨 Blow Candles</span>
+                        </button>
+                        <button id="restCutCakeBtn" class="pill-btn cake-action-btn" style="opacity: 0.5;" disabled>
+                            <span>🍰 Cut the Cake</span>
+                        </button>
+                    </div>
+
+                    <!-- Celebration Unlocked Banner -->
+                    <div id="cakeUnlockedBanner" class="letter-unlocked-banner" style="display: none;">
+                        <div class="unlocked-badge">🎉 CAKE SLICED WITH LOVE! 💌</div>
+                        <div class="unlocked-title">Your Birthday Letter is Now Unlocked!</div>
+                        <div class="unlocked-desc">
+                            The candles are blown, the cake is cut, and your personal keepsake letter is waiting to be read.
+                        </div>
+                    </div>
+
+                    <!-- Open Birthday Letter button appears after cutting cake -->
+                    <button id="openBirthdayLetterBtn" class="enter-grand-btn open-letter-grand-btn" style="display: none;">
+                        <span>💌 Open the Letter →</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 6: CUSTOM BIRTHDAY LETTER -->
+        <section id="stage-letter" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">Chapter 6</div>
+                    <h2 class="chapter-title">A Keepsake Birthday Letter</h2>
+                </div>
+            </div>
+
+            <div class="letter-envelope-container">
+                <div class="letter-salutation">To My Dear Ma’am,</div>
+                <div id="customLetterContent" class="letter-content-box"></div>
+                <div class="letter-signature-block">
+                    <span class="sig-closing">With Love,</span>
+                    <span class="sig-name">Riddy</span>
+                </div>
+
+                <div class="letter-actions">
+                    <button id="editLetterBtn" class="pill-btn" style="background: #ffffff;">
+                        <span>✏️ Edit / Customize Letter</span>
+                    </button>
+                    <button onclick="window.print()" class="enter-grand-btn" style="padding: 12px 28px; font-size: 14px;">
+                        <span>🖨️ Print / Save as PDF Keepsake</span>
+                    </button>
+                </div>
+
+                <!-- FINISH OPTION: Directs to Funny Game -->
+                <div class="finish-section-wrap">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #7a1c2c; margin-bottom: 6px;">
+                        The Celebration Continues!
+                    </div>
+                    <p style="font-size: 13.5px; color: #6b4d53; margin-bottom: 18px; max-width: 480px; margin-left: auto; margin-right: auto;">
+                        Click FINISH to unlock Sherlock Riddy's hilarious birthday challenge game!
+                    </p>
+                    <button id="finishToGameBtn" class="enter-grand-btn finish-grand-btn">
+                        <span>🏁 FINISH → Play the Birthday Surprise Game! 🎮</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 7: FUNNY BIRTHDAY GAME -->
+        <section id="stage-funny-game" class="game-stage">
+            <div class="chapter-nav-header">
+                <div>
+                    <div class="chapter-badge">HAPPIEST BIRTHDAY</div>
+                    <h2 class="chapter-title">Risala Ma'am's Birthday Rush!</h2>
+                </div>
+            </div>
+
+            <div class="funny-game-container">
+                <div class="game-header-bar">
+                    <div class="game-stat-box">
+                        <span class="stat-label">Score</span>
+                        <span id="gameScoreVal" class="stat-val">0</span>
+                    </div>
+                    <div class="game-stat-box">
+                        <span class="stat-label">Time</span>
+                        <span id="gameTimerVal" class="stat-val">30s</span>
+                    </div>
+                    <div class="game-stat-box">
+                        <span class="stat-label">Title</span>
+                        <span id="gameRankVal" class="stat-val" style="font-size: 13px;">Certified Favourite</span>
+                    </div>
+                </div>
+
+                <!-- Live Commentary Toast Bar -->
+                <div id="gameLiveCommentary" class="game-commentary-bar">
+                    🕵️‍♂️ Sherlock Riddy: "Catch the cakes and flowers, Ma'am! Dodge the alarms!"
+                </div>
+
+                <!-- Canvas Game Screen -->
+                <div class="canvas-container game-canvas-wrap">
+                    <canvas id="funnyGameCanvas"></canvas>
+                    
+                    <!-- Game Over Overlay -->
+                    <div id="funnyGameOverOverlay" class="game-overlay-screen" style="display: none;">
+                        <div class="overlay-medal">🏆</div>
+                        <div class="overlay-title">Sherlock Riddy's Official Decree</div>
+                        <div id="overlayScoreSummary" class="overlay-summary">You scored 150 points! — Title: Certified Favourite 👑</div>
+                        <div id="overlayFunnyDegree" class="overlay-degree-text">
+                            After a thorough investigation, Sherlock Riddy has determined that today deserves a little extra celebration. The evidence is clear: it's Ma'am's birthday! Case closed. Happy Birthday, Ma'am! 💗
+                        </div>
+                        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap;">
+                            <button id="restartGameBtn" class="enter-grand-btn">
+                                <span>🔄 Play Again!</span>
+                            </button>
+                            <button id="returnToLetterBtn" class="pill-btn" style="background: #ffffff;">
+                                <span>💌 Back to Letter</span>
+                            </button>
+                            <button id="exitGameOverlayBtn" class="pill-btn exit-pill-btn">
+                                <span>🚪 Finish & Exit Celebration ✨</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile & Touch Controls Bar -->
+                <div class="touch-controls-guide">
+                    <div class="touch-hint">👆 Drag or tap left/right to move your royal basket! (Or use ⬅️ ➡️ keys on PC)</div>
+                    <div class="touch-buttons-row">
+                        <button id="gameLeftBtn" class="pill-btn mobile-arrow-btn"><span>⬅️ Move Left</span></button>
+                        <button id="gameRightBtn" class="pill-btn mobile-arrow-btn"><span>Move Right ➡️</span></button>
+                    </div>
+                    <div style="margin-top: 6px;">
+                        <button id="exitGameHeaderBtn" class="pill-btn exit-pill-btn" style="font-size: 13px; padding: 8px 20px;">
+                            <span>🚪 Finish & Exit Celebration</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 8: CELEBRATION COMPLETE / GRAND FAREWELL SURFACE -->
+        <section id="stage-finish" class="game-stage">
+            <div class="welcome-surface finish-farewell-surface">
+                <div class="finish-sparkle-crest">✨ 🎂 💖 🌸 ✨</div>
+                <div class="warning-title-pill" style="color: #7a1c2c; border-color: var(--champagne-gold);">CELEBRATION COMPLETE</div>
+                <h1 class="surface-headline" style="margin-top: 14px; font-size: 32px;">HAPPIEST BIRTHDAY DEAR MA'AM!</h1>
+                
+                <div class="finish-card-body">
+                    <p class="finish-paragraph">
+                        Thank you for visiting your little birthday celebration, Ma'am! You are truly one of the most admired, cherished, and favorite people in the world.
+                    </p>
+                    <p class="finish-paragraph highlight">
+                        May your year ahead be blessed with radiant health, boundless happiness, peace, and endless smiles! Always stay as wonderful and lovely as you are.
+                    </p>
+                    <div class="finish-sign-pill">
+                        <strong>With Love - Riddy</strong>
+                    </div>
+                </div>
+
+                <div class="finish-bottom-actions">
+                    <button id="replayEverythingBtn" class="enter-grand-btn">
+                        <span>↺ Experience Celebration Again</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Letter Modal -->
+    <div id="letterModal" class="modal-overlay">
+        <div class="modal-card">
+            <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #7a1c2c;">
+                Personalize Your Birthday Letter
+            </div>
+            <p style="font-size: 13px; color: #6b4d53; margin-top: 4px;">
+                You can type or paste your exact custom message for Risala Ma'am below:
+            </p>
+            <textarea id="editLetterTextarea" class="modal-textarea" rows="10"></textarea>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px;">
+                <button id="closeLetterModalBtn" class="pill-btn" style="background: #f5f5f5;">Cancel</button>
+                <button id="saveCustomLetterBtn" class="enter-grand-btn" style="padding: 10px 24px; font-size: 13.5px;">Save Letter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Locked Letter / Ritual Alerts -->
+    <div id="lockedToast" class="locked-toast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="audio.js"></script>
+    <script src="assets.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
