@@ -488,7 +488,7 @@
                     </div>
                     <div class="game-stat-box">
                         <span class="stat-label">Title</span>
-                        <span id="gameRankVal" class="stat-val" style="font-size: 13px;">Certified Favourite</span>
+                        <span id="gameRankVal" class="stat-val">Certified Favourite</span>
                     </div>
                 </div>
 
@@ -505,7 +505,7 @@
                     <div id="funnyGameOverOverlay" class="game-overlay-screen" style="display: none;">
                         <div class="overlay-medal">🏆</div>
                         <div class="overlay-title">Sherlock Riddy's Official Decree</div>
-                        <div id="overlayScoreSummary" class="overlay-summary">You scored 150 points! — Title: Certified Favourite 👑</div>
+                        <div id="overlayScoreSummary" class="overlay-summary">You scored 150 points! — <span class="summary-title-badge">Title: Certified Favourite 👑</span></div>
                         <div id="overlayFunnyDegree" class="overlay-degree-text">
                             After a thorough investigation, Sherlock Riddy has determined that today deserves a little extra celebration. The evidence is clear: it's Ma'am's birthday! Case closed. Happy Birthday, Ma'am! 💗
                         </div>
@@ -524,16 +524,11 @@
                 </div>
 
                 <!-- Mobile & Touch Controls Bar -->
-                <div class="touch-controls-guide">
+                <div id="gameTouchControlsGuide" class="touch-controls-guide">
                     <div class="touch-hint">👆 Drag or tap left/right to move your royal basket! (Or use ⬅️ ➡️ keys on PC)</div>
                     <div class="touch-buttons-row">
                         <button id="gameLeftBtn" class="pill-btn mobile-arrow-btn"><span>⬅️ Move Left</span></button>
                         <button id="gameRightBtn" class="pill-btn mobile-arrow-btn"><span>Move Right ➡️</span></button>
-                    </div>
-                    <div style="margin-top: 6px;">
-                        <button id="exitGameHeaderBtn" class="pill-btn exit-pill-btn" style="font-size: 13px; padding: 8px 20px;">
-                            <span>🚪 Finish & Exit Celebration</span>
-                        </button>
                     </div>
                 </div>
             </div>
